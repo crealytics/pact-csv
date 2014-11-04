@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'pact/xml/diff_formatter'
+require 'pact/csv/diff_formatter'
 
 module Pact
-  module XML
+  module CSV
 
     describe DiffFormatter do
 

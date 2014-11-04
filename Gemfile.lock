@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pact-xml (0.0.1.alpha)
+    pact-csv (0.0.1.alpha)
 
 GEM
   remote: https://rubygems.org/
@@ -26,6 +26,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.6)
-  pact-xml!
+  pact-csv!
   rake
   rspec (~> 3.0)

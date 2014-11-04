@@ -1,14 +1,14 @@
 require 'spec_helper'
-require 'pact/xml/differ'
+require 'pact/csv/differ'
 
 module Pact
-  module XML
+  module CSV
 
     describe Differ do
 
       describe ".call" do
 
-        it "returns the diff between two XML documents"
+        it "returns the diff between two CSV documents"
 
       end
 

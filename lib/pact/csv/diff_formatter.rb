@@ -1,5 +1,5 @@
 module Pact
-  module XML
+  module CSV
 
     class DiffFormatter
 
