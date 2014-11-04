@@ -3,6 +3,7 @@ module Pact
 
     class DiffFormatter
 
+      attr_reader :diff, :colour
       def initialize diff, options = {}
         @diff = diff
         @colour = options.fetch(:colour, false)
@@ -13,7 +14,7 @@ module Pact
       end
 
       def call
-        # diff formatting code here
+        diff.join("\n")
       end
 
       private
