@@ -1,4 +1,4 @@
-require 'cucumber'
+require 'csv-diff'
 
 module Pact
   module CSV
@@ -22,15 +22,15 @@ module Pact
         compare(expected_data, actual_data)
       end
       def compare(expected, actual)
-        expected_table = Cucumber::Ast::Table.new(expected.map(&:to_hash))
-        actual_table = Cucumber::Ast::Table.new(actual.map(&:to_hash))
-        errors = []
-        begin
-          expected_table.diff!(actual_table)
-        rescue => e
-          errors = [e.table]
-        end
-        errors
+        diff = ::CSVDiff.new(expected, actual)
+        puts "*" * 80, diff.summary.inspect
+        puts diff.adds.inspect      # Details of the additions to file2
+        puts diff.deletes.inspect   # Details of the deletions to file1
+        puts diff.updates.inspect   # Details of the updates from file1 to file2
+        puts diff.moves.inspect     # Details of the moves from file1 to file2
+        puts diff.diffs.inspect     # Details of all differences
+        puts diff.warnings.inspect  # Any warnings generated during the diff process
+        diff.warnings + diff.diffs.to_a
       end
     end
   end
